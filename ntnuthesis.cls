@@ -8,17 +8,29 @@
 
 %% IDENTIFICATION
 
-\xdef\ntnuthesisdate{2019/07/18}
+% Date format: YYYY/MM/DD
+% \xdef\ntnuthesisdate{2022/06/20}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ntnuthesis}
- [\ntnuthesisdate\space
-   CC-BY CoPCSE at NTNU 2019]
+ %[\ntnuthesisdate\space
+ %  CC-BY CoPCSE at NTNU 2019]
 
 
 %% CLASS OPTIONS
 
 % Package for some reason needed before the options
 \RequirePackage{pdfpages}                   % including pdf files
+\RequirePackage[]{datetime}
+
+% DATE SPECIFICATION
+% ------------------------------------------------------------
+%
+% Specifies today's date:
+%\newdate{date}{\the\day}{\the\month}{\the\year}
+%
+% Specifies a custom date:
+% DATE FORMAT: DD  MM  YYYY
+\newdate{date}{20}{06}{2022}
 
 % One or twosided paging
 \newcommand{\paging}{twoside}
@@ -26,11 +38,43 @@
   \renewcommand{\paging}{oneside}
 }
 
+% Specify your supervisor here
+\newcommand{\NTNUSupervisor}{Professor Anne C. Elster}
+
+% Opt for sans-serif font (OpenSans)
+\renewcommand{\familydefault}{\sfdefault}
+
+% \renewcommand{\dateseparator}{-}
+\newdateformat{monthyeardate}{%
+    \monthname[\THEMONTH] \THEYEAR}
+
 % Title Page
 \DeclareOption{titlepage}{
     \AtBeginDocument{
         \begin{titlepage}
-            \maketitle
+            \noindent { \LARGE \textcolor{gray}{\@author}} \\[6ex]
+            % Adjust this width to set the width of the title
+            \parbox{.9\linewidth}{
+                {\Huge \bfseries \@title}
+            }
+            \vfill
+            % HPC Lab Logo
+            \noindent \includegraphics[width=0.35\linewidth]{
+                figures/hpc-lab-logo-black.png}
+            \vspace{0.5cm}
+
+            \noindent {\large Master's thesis in Computer Science} \\
+            {\large Supervisor: \NTNUSupervisor} \\
+            {\large \monthyeardate{\@date}} \\[2ex]
+
+            % University, Faculty and Department
+            \noindent {\large \NTNU} \\
+            {\large \NTNUFaculty} \\
+            {\large \NTNUDepartment} \\
+            \vspace{1.55cm} \\
+            % NTNU Logo
+            \includegraphics[width=0.35\linewidth]{figures/ntnu_hoeyde_eng.png}\\
+            % \maketitle
         \end{titlepage}
     }
 }
@@ -44,6 +88,8 @@
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} in {G}j\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} in {\AA}lesund}
+    \newcommand{\NTNUDepartment}{Department of Computer Science}
+    \newcommand{\NTNUFaculty}{Faculty of Information Technology and Electrical Engineering}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Code listing}
         \renewcommand{\lstlistlistingname}{Code Listings}
@@ -67,6 +113,8 @@
     \newcommand{\NTNUTrondheim}{{NTNU} in {T}rondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} in {G}j\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} in {\AA}lesund}
+    \newcommand{\NTNUDepartment}{Department of Computer Science}
+    \newcommand{\NTNUFaculty}{Faculty of Information Technology and Electrical Engineering}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Code listing}
         \renewcommand{\lstlistlistingname}{Code Listings}
@@ -90,6 +138,8 @@
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} i {G}j\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} i {\AA}lesund}
+    \newcommand{\NTNUDepartment}{Institutt for datateknologi og informatikk}
+    \newcommand{\NTNUFaculty}{Fakultet for informasjonsteknologi og elektronikk}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Kodeliste}
         \renewcommand{\lstlistlistingname}{Kodelister}
@@ -146,6 +196,7 @@
 \RequirePackage[charter, cal=cmcal]{mathdesign} % main font with math support
 \RequirePackage[scaled=.88]{berasans}       % sans serif font
 \RequirePackage[scaled=.82]{DejaVuSansMono} % monospace font (for code)
+\RequirePackage[scaled=.82,defaultsans]{opensans} % monospace font (for code)
 \RequirePackage{listings}                   % code listings
 \RequirePackage{etoolbox}                   % fixing list of listings spacing
 \RequirePackage{babel}                      % language specifics
