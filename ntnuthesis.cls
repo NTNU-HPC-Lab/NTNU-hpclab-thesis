@@ -49,32 +49,38 @@
     \monthname[\THEMONTH] \THEYEAR}
 
 % Title Page
+% ----------------------------------------------------------
 \DeclareOption{titlepage}{
     \AtBeginDocument{
         \begin{titlepage}
-            \noindent { \LARGE \textcolor{gray}{\@author}} \\[6ex]
+            { % Local scope for disabling paragraph indentation
+            \setlength{\parindent}{0pt} % Disable paragraph indentation on the title page
+            { \LARGE \textcolor{gray}{\@author}} \\[6ex] % Author Name
             % Adjust this width to set the width of the title
+            % e.g. .9\linewidth
             \parbox{.9\linewidth}{
-                {\Huge \bfseries \@title}
+                {\Huge \bfseries \@title} % Title
             }
             \vfill
             % HPC Lab Logo
-            \noindent \includegraphics[width=0.35\linewidth]{
+            \includegraphics[width=0.35\linewidth]{
                 figures/hpc-lab-logo-black.png}
             \vspace{0.5cm}
 
-            \noindent {\large Master's thesis in Computer Science} \\
+            {\large Master's thesis in Computer Science} \\
             {\large Supervisor: \NTNUSupervisor} \\
             {\large \monthyeardate{\@date}} \\[2ex]
 
             % University, Faculty and Department
-            \noindent {\large \NTNU} \\
+            {\large \NTNU} \\
             {\large \NTNUFaculty} \\
             {\large \NTNUDepartment} \\
             \vspace{1.55cm} \\
             % NTNU Logo
+            % TODO: Use correct image for each language (eng, no)
             \includegraphics[width=0.35\linewidth]{figures/ntnu_hoeyde_eng.png}\\
             % \maketitle
+            } % end of local scope
         \end{titlepage}
     }
 }
@@ -163,6 +169,8 @@
     \newcommand{\NTNUTrondheim}{{NTNU} i {T}rondheim}
     \newcommand{\NTNUGjoevik}{{NTNU} i {G}j\o{}vik}
     \newcommand{\NTNUAalesund}{{NTNU} i {\AA}lesund}
+    \newcommand{\NTNUDepartment}{Institutt for datateknologi og informatikk}
+    \newcommand{\NTNUFaculty}{Fakultet for informasjonsteknologi og elektronikk}
     \AtBeginDocument{
         \renewcommand{\lstlistingname}{Kodeliste}
         \renewcommand{\lstlistlistingname}{Kodelister}

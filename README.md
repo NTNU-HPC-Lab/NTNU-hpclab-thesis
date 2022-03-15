@@ -1,4 +1,15 @@
-# thesis-NTNU
+# hcplab-thesis-NTNU
+
+This is a fork of [thesis-NTNU](https://github.com/COPCSE-NTNU/thesis-NTNU).
+It adds a front page suitable for theses written by members of the [HPC-Lab at NTNU](https://www.ntnu.edu/idi/hpc-lab).
+
+## Setup
+- Adjust the title, short title, author name, and short author name in `thesis.tex`.
+- Specify the date in `ntnuthesis.cls` under the `DATE SPECIFICATION` header.
+- Specify your supervisor in `ntnuthesis.cls` in the `\NTNUSupervisor` command.
+
+
+## thesis-NTNU
 
 CoPCSE@NTNU – Community of Practice for Computer Science Education at the Norwegian University of Science and Technology – is an informal forum for lecturers in computer science and related fields across campuses and departments.
 
@@ -6,19 +17,19 @@ The current repository provides a LaTeX thesis template that should in principle
 
 The template does not have any official status, and it is not a general NTNU-level requirement to use it. It replaces previous templates like https://github.com/COPCSE-NTNU/bachelor-thesis-NTNU and https://github.com/COPCSE-NTNU/master-theses-NTNU.
 
-## Setting up
+### Setting up
 
 You can use the template with [Overleaf](http://overleaf.com), and you are strongly encouraged to do so. The alternative is to install local copy of LaTeX on your laptop (not adviced, huge, difficult).
 
-You should **fork** the CoPCSE repo so that you have your own files to edit and you can always merge with the upstream changes to the template, in case the template is updated. 
+You should **fork** the CoPCSE repo so that you have your own files to edit and you can always merge with the upstream changes to the template, in case the template is updated.
 
-### Setup using Overleaf
+#### Setup using Overleaf
 
 There are two ways for setting up the [**Overleaf**](http://overleaf.com) project with the template:
 
 * Use the `.zip` copy and upload.
 * Fork the the CoPCSE repo so that you have your own files to edit.
 
-### Building document locally
+#### Building document locally
 
 The template also provides a simple `Makefile` which allows you to build the document locally. This requires that you have a LaTeX compiler, such as [`texlive`](https://www.tug.org/texlive/), installed locally, which has to provide the commands `pdflatex` and `biber`.
