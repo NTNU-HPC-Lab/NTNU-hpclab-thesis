@@ -1,7 +1,10 @@
 # hcplab-thesis-NTNU
 
+
 This is a fork of [thesis-NTNU](https://github.com/COPCSE-NTNU/thesis-NTNU).
 It adds a front page suitable for theses written by members of the [HPC-Lab at NTNU](https://www.ntnu.edu/idi/hpc-lab).
+
+![sample image](/sample.png)
 
 ## Setup
 - Adjust the title, short title, author name, and short author name in `thesis.tex`.
