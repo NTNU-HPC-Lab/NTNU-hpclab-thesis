@@ -42,7 +42,7 @@
 \newcommand{\NTNUSupervisor}{Professor Anne C. Elster}
 
 % Opt for sans-serif font (OpenSans)
-\renewcommand{\familydefault}{\sfdefault}
+% \renewcommand{\familydefault}{\sfdefault}
 
 % \renewcommand{\dateseparator}{-}
 \newdateformat{monthyeardate}{%
