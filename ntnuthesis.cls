@@ -63,8 +63,8 @@
             }
             \vfill
             % HPC Lab Logo
-            \includegraphics[width=0.35\linewidth]{
-                figures/hpc-lab-logo-black.png}
+            \includegraphics[width=0.30\linewidth]{
+                figures/hpc-lab-logo-black-2022.png}
             \vspace{0.5cm}
 
             {\large Master's thesis in Computer Science} \\
